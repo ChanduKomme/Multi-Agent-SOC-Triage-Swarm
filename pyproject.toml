@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triagehive"
+version = "1.0.0"
+description = "Multi-agent SOC triage swarm: MCP tool server, guarded agents, human approval tiers, hash-chained audit and a ground-truth evaluation"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Chandu Komme"}]
+requires-python = ">=3.10"
+keywords = ["soc", "multi-agent", "mcp", "incident-response", "llm-security", "mitre-attack"]
+
+[project.scripts]
+triagehive = "triagehive.cli:main"
+
+[tool.setuptools]
+packages = ["triagehive"]
