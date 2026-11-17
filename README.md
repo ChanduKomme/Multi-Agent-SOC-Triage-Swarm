@@ -1,4 +1,4 @@
-# Project 09 — Multi-Agent SOC Triage Swarm
+#  Multi-Agent SOC Triage Swarm
 
 **The capstone.** LLM + agents + MCP + RAG in one working system. Three specialised agents
 turn a batch of synthetic SOC alerts into a consolidated incident report, with an analyst
