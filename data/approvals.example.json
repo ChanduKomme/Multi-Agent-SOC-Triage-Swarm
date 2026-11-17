@@ -1,0 +1,9 @@
+{
+  "ACT-002": [{"by": "lena.weber", "decision": "approve", "reason": "VPS seen in three alerts"}],
+  "ACT-004": [{"by": "lena.weber", "decision": "approve", "reason": "key used from a VPS"}],
+  "ACT-005": [{"by": "lena.weber", "decision": "approve", "reason": "undo the escalation"},
+              {"by": "omar.haddad", "decision": "approve", "reason": "second approver for a disruptive action"}],
+  "ACT-011": [{"by": "omar.haddad", "decision": "approve", "reason": "beaconing laptop"}],
+  "ACT-016": [{"by": "lena.weber", "decision": "approve", "reason": "lateral movement target"},
+              {"by": "omar.haddad", "decision": "deny", "reason": "isolate after the payments cut-over at 10:00"}]
+}
