@@ -1,0 +1,43 @@
+test_generate (test_cli.CliTests.test_generate) ... ok
+test_run_and_verify (test_cli.CliTests.test_run_and_verify) ... ok
+test_generated_truth_is_complete (test_evaluation.EvaluationTests.test_generated_truth_is_complete) ... ok
+test_generator_is_deterministic (test_evaluation.EvaluationTests.test_generator_is_deterministic) ... ok
+test_holdouts_are_not_in_the_generator (test_evaluation.EvaluationTests.test_holdouts_are_not_in_the_generator) ... ok
+test_pair_scores (test_evaluation.EvaluationTests.test_pair_scores) ... ok
+test_small_evaluation_passes_gate (test_evaluation.EvaluationTests.test_small_evaluation_passes_gate) ... ok
+test_hallucinated_alert_id_is_rejected (test_llm.NarratorTests.test_hallucinated_alert_id_is_rejected) ... ok
+test_llm_cannot_change_decisions (test_llm.NarratorTests.test_llm_cannot_change_decisions) ... ok
+test_network_failure_falls_back (test_llm.NarratorTests.test_network_failure_falls_back) ... ok
+test_valid_summary_is_used_and_untrusted_text_is_fenced (test_llm.NarratorTests.test_valid_summary_is_used_and_untrusted_text_is_fenced) ... ok
+test_allowlist_and_budget (test_mcp.McpTests.test_allowlist_and_budget) ... ok
+test_handshake_and_listing (test_mcp.McpTests.test_handshake_and_listing) ... ok
+test_server_survives_garbage_on_stdio (test_mcp.McpTests.test_server_survives_garbage_on_stdio) ... ok
+test_stdio_and_inproc_agree (test_mcp.McpTests.test_stdio_and_inproc_agree) ... ok
+test_unknown_method_and_bad_args (test_mcp.McpTests.test_unknown_method_and_bad_args) ... ok
+test_example_file_outcomes (test_swarm.ApprovalTests.test_example_file_outcomes) ... ok
+test_invalid_file_rejected (test_swarm.ApprovalTests.test_invalid_file_rejected) ... ok
+test_same_person_twice_is_one_approver (test_swarm.ApprovalTests.test_same_person_twice_is_one_approver) ... ok
+test_files_audit_and_escaping (test_swarm.OutputTests.test_files_audit_and_escaping) ... ok
+test_alert_limit (test_swarm.SwarmTests.test_alert_limit) ... ok
+test_every_factor_cites_real_evidence (test_swarm.SwarmTests.test_every_factor_cites_real_evidence) ... ok
+test_every_verdict_matches_ground_truth (test_swarm.SwarmTests.test_every_verdict_matches_ground_truth) ... ok
+test_incidents_match_ground_truth (test_swarm.SwarmTests.test_incidents_match_ground_truth) ... ok
+test_no_containment_without_approval (test_swarm.SwarmTests.test_no_containment_without_approval) ... ok
+test_reviewer_catches_hallucinated_target_and_bad_evidence (test_swarm.SwarmTests.test_reviewer_catches_hallucinated_target_and_bad_evidence) ... ok
+test_reviewer_flags_coverage_gap (test_swarm.SwarmTests.test_reviewer_flags_coverage_gap) ... ok
+test_steering_alert_is_escalated_not_obeyed (test_swarm.SwarmTests.test_steering_alert_is_escalated_not_obeyed) ... ok
+test_truth_is_hidden_from_agents (test_swarm.SwarmTests.test_truth_is_hidden_from_agents) ... ok
+test_invisible_characters_do_not_hide_steering (test_world_memory_guard.GuardTests.test_invisible_characters_do_not_hide_steering) ... ok
+test_kill_chain_order (test_world_memory_guard.GuardTests.test_kill_chain_order) ... ok
+test_plain_telemetry_is_clean (test_world_memory_guard.GuardTests.test_plain_telemetry_is_clean) ... ok
+test_sanitise (test_world_memory_guard.GuardTests.test_sanitise) ... ok
+test_spotlight_cannot_be_closed_early (test_world_memory_guard.GuardTests.test_spotlight_cannot_be_closed_early) ... ok
+test_steering_detected (test_world_memory_guard.GuardTests.test_steering_detected) ... ok
+test_retrieval_and_technique_bonus (test_world_memory_guard.MemoryTests.test_retrieval_and_technique_bonus) ... ok
+test_change_calendar_respects_daily_window (test_world_memory_guard.WorldTests.test_change_calendar_respects_daily_window) ... ok
+test_lookups (test_world_memory_guard.WorldTests.test_lookups) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.483s
+
+OK

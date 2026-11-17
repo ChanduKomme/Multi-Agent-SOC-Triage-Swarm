@@ -1,0 +1,11 @@
+TriageHive 1.0.0 · night-shift · run 2b4d4abc4e31 · 55.2 ms
+  13 alerts -> 2 incidents, 5 dismissed · 73 MCP tool calls (stdio)
+  INC-001  critical confirmed    3 alerts  privilege-escalation > credential-access > collection
+  INC-002  critical confirmed    5 alerts  initial-access > execution > credential-access > lateral-movement > command-and-control
+  actions: 3 approved, 3 auto approved, 1 denied, 9 pending
+  reviewer: PASS
+  markdown  evidence/sample-run/triage_report.md
+  json      evidence/sample-run/triage_run.json
+  html      evidence/sample-run/dashboard.html
+  audit     evidence/sample-run/audit.jsonl
+OK  124 records verified, head d7452f6a83c85af3
