@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1480" viewBox="0 0 2000 1480">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
+<rect width="2000" height="1480" fill="#f8fafc"/>
+<text x="60" y="58" font-size="31" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Multi-Agent SOC Triage Swarm — trust boundaries and controls</text>
+<text x="60" y="90" font-size="16" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Project 09 capstone. LLM + agents + MCP + RAG. Dashed outlines mark trust boundaries.</text>
+<rect x="50" y="130" width="380" height="570" rx="16" fill="#dc262614" stroke="#dc2626" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="66" y="158" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">TB-0 · Untrusted data</text>
+<text x="66" y="180" font-size="13" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-style="italic">attacker can influence every field here</text>
+<rect x="480" y="130" width="400" height="580" rx="16" fill="#2563eb14" stroke="#2563eb" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="496" y="158" font-size="17" font-weight="700" fill="#2563eb" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">TB-1 · Orchestrator (control plane)</text>
+<text x="496" y="180" font-size="13" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-style="italic">trusted code, no model judgement</text>
+<rect x="930" y="130" width="620" height="1010" rx="16" fill="#7c3aed14" stroke="#7c3aed" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="946" y="158" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">TB-2 · Agent plane (descending privilege)</text>
+<text x="946" y="180" font-size="13" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-style="italic">each agent is a separate context + prompt</text>
+<rect x="1600" y="130" width="350" height="440" rx="16" fill="#0d948814" stroke="#0d9488" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="1616" y="158" font-size="17" font-weight="700" fill="#0d9488" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">TB-3 · MCP tool layer</text>
+<text x="1616" y="180" font-size="13" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-style="italic">read-only, allowlisted</text>
+<rect x="1600" y="620" width="350" height="520" rx="16" fill="#0369a114" stroke="#0369a1" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="1616" y="648" font-size="17" font-weight="700" fill="#0369a1" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">TB-4 · Human decision + output</text>
+<text x="1616" y="670" font-size="13" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-style="italic">the only place actions are approved</text>
+<rect x="70" y="190" width="340" height="96" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.2"/>
+<text x="86" y="220" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Raw alert batch</text>
+<text x="86" y="246" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">data/alerts.json — 8 alerts</text>
+<text x="86" y="268" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">free-text rule / detail / analyst_note</text>
+<rect x="70" y="306" width="340" height="118" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.2"/>
+<text x="86" y="336" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Past-incident corpus</text>
+<text x="86" y="362" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">data/past_incidents/*.md</text>
+<text x="86" y="384" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">shared, long-lived context</text>
+<text x="86" y="406" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">poisoning here persists across runs</text>
+<rect x="70" y="444" width="340" height="96" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.2"/>
+<text x="86" y="474" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Mock SOC context DB</text>
+<text x="86" y="500" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">assets · identities · threat intel</text>
+<text x="86" y="522" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">reachable only via MCP tools</text>
+<rect x="70" y="560" width="340" height="96" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.2"/>
+<text x="86" y="590" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">RAG store (TF-IDF)</text>
+<text x="86" y="616" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">src/rag_store.py</text>
+<text x="86" y="638" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">query from structured fields only</text>
+<rect x="500" y="200" width="360" height="170" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.2"/>
+<text x="516" y="230" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Orchestrator</text>
+<text x="516" y="256" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">src/orchestrator.py — owns every handoff</text>
+<text x="516" y="278" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">sequences enrich -&gt; correlate -&gt; respond</text>
+<text x="516" y="300" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">never forwards a raw transcript</text>
+<text x="516" y="322" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">one failing alert cannot kill the batch</text>
+<rect x="500" y="396" width="360" height="122" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.2"/>
+<text x="516" y="426" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Handoff sanitiser</text>
+<text x="516" y="452" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">findings schema allowlist</text>
+<text x="516" y="474" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">800-char truncation</text>
+<text x="516" y="496" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">re-scan for relayed instructions</text>
+<rect x="500" y="544" width="360" height="122" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.2"/>
+<text x="516" y="574" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Budget / circuit breaker</text>
+<text x="516" y="600" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">max LLM calls · tool calls · turns</text>
+<text x="516" y="622" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">token and call accounting</text>
+<text x="516" y="644" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">reserves calls for later stages</text>
+<rect x="955" y="200" width="570" height="170" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2.2"/>
+<text x="971" y="230" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">1 · Enrichment Agent</text>
+<text x="971" y="256" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">MCP client + RAG read — the ONLY agent that touches untrusted text</text>
+<text x="971" y="278" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">tools: asset · identity · threat-intel · rule-history · related-alerts</text>
+<text x="971" y="300" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">max 4 tool calls per alert; emits one fixed-schema JSON finding</text>
+<text x="971" y="322" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">privilege: read-only lookups, cannot act</text>
+<rect x="955" y="440" width="570" height="148" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2.2"/>
+<text x="971" y="470" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">2 · Correlation Agent</text>
+<text x="971" y="496" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">no tools. Reads sanitised findings + structured alert metadata only</text>
+<text x="971" y="518" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">groups alerts into candidate incidents, sets severity + confidence</text>
+<text x="971" y="540" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">must justify severity from evidence, not from raw alert severity</text>
+<rect x="955" y="658" width="570" height="148" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2.2"/>
+<text x="971" y="688" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">3 · Response Agent</text>
+<text x="971" y="714" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">no tools. Drafts contain -&gt; eradicate -&gt; recover -&gt; follow-up actions</text>
+<text x="971" y="736" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">drafts advisory actions for analyst review</text>
+<text x="971" y="758" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">may not recommend closure of an injection-flagged incident</text>
+<rect x="955" y="846" width="570" height="122" rx="12" fill="#faf5ff" stroke="#7c3aed" stroke-width="2.2"/>
+<text x="971" y="876" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Shared guardrail library</text>
+<text x="971" y="902" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">src/guardrails.py — wrap_untrusted() · injection_signals()</text>
+<text x="971" y="924" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Handoff validation · Budget · ApprovalGate</text>
+<text x="971" y="946" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">used by all three agents and by the orchestrator</text>
+<rect x="955" y="992" width="570" height="122" rx="12" fill="#faf5ff" stroke="#7c3aed" stroke-width="2.2"/>
+<text x="971" y="1022" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Cascading-error control</text>
+<text x="971" y="1048" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">every stage re-derives its own conclusion from structured evidence;</text>
+<text x="971" y="1070" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">low-confidence or injection-flagged findings are labelled downstream,</text>
+<text x="971" y="1092" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">never silently inherited as fact</text>
+<rect x="1620" y="190" width="310" height="148" rx="12" fill="#ffffff" stroke="#0d9488" stroke-width="2.2"/>
+<text x="1636" y="220" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Mock SOC context server</text>
+<text x="1636" y="246" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">MCP server over stdio</text>
+<text x="1636" y="268" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">src/mcp_server.py</text>
+<text x="1636" y="290" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">5 read-only tools</text>
+<text x="1636" y="312" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">no write / containment tool</text>
+<rect x="1620" y="366" width="310" height="170" rx="12" fill="#ffffff" stroke="#0d9488" stroke-width="2.2"/>
+<text x="1636" y="396" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Tool gate (client side)</text>
+<text x="1636" y="422" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">ALLOWED_TOOLS allowlist</text>
+<text x="1636" y="444" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">per-run call ceiling</text>
+<text x="1636" y="466" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">MAX_RESULTS cap</text>
+<text x="1636" y="488" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">results fenced as data</text>
+<text x="1636" y="510" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">policy lives in the client</text>
+<rect x="1620" y="680" width="310" height="170" rx="12" fill="#ffffff" stroke="#0369a1" stroke-width="2.2"/>
+<text x="1636" y="710" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Human approval gate</text>
+<text x="1636" y="736" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">code-owned approval classification</text>
+<text x="1636" y="758" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">routine review has fixed wording</text>
+<text x="1636" y="780" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">analyst approves / denies</text>
+<text x="1636" y="802" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">decision recorded per action</text>
+<text x="1636" y="824" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">--auto-approve = demo only</text>
+<rect x="1620" y="890" width="310" height="170" rx="12" fill="#ffffff" stroke="#0369a1" stroke-width="2.2"/>
+<text x="1636" y="920" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">SOC triage report</text>
+<text x="1636" y="946" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">rendered by the orchestrator</text>
+<text x="1636" y="968" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">incident table by severity</text>
+<text x="1636" y="990" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">evidence + matched precedent</text>
+<text x="1636" y="1012" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">action plan + approvals</text>
+<text x="1636" y="1034" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">guardrail flags, token usage</text>
+<path d="M 410 238 L 500 238" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<circle cx="455" cy="210" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="455" y="215" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">1</text>
+<path d="M 860 250 L 955 250" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<circle cx="908" cy="222" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="908" y="227" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">2</text>
+<path d="M 410 608 L 450 608 L 450 531 L 905 531 L 905 300 L 955 300" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)" stroke-dasharray="8 6"/>
+<circle cx="700" cy="531" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="700" y="536" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">3</text>
+<path d="M 1525 240 L 1620 240" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<circle cx="1572" cy="212" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="1572" y="217" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">4</text>
+<path d="M 1620 300 L 1560 300 L 1560 330 L 1525 330" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<circle cx="1572" cy="352" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="1572" y="357" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">5</text>
+<path d="M 1240 370 L 1240 440" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<circle cx="1284" cy="405" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="1284" y="410" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">6</text>
+<path d="M 1240 588 L 1240 658" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<circle cx="1284" cy="623" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="1284" y="628" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">7</text>
+<path d="M 1525 720 L 1620 740" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<circle cx="1572" cy="640" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="1572" y="645" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">8</text>
+<path d="M 1775 850 L 1775 890" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<path d="M 860 600 L 905 600 L 905 940 L 955 940" stroke="#334155" stroke-width="2.4" fill="none" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<circle cx="905" cy="700" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="905" y="705" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">9</text>
+<text x="60" y="760" font-size="18" font-weight="700" fill="#0f172a" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Legend</text>
+<rect x="62" y="778" width="20" height="20" rx="5" fill="#dc262622" stroke="#dc2626" stroke-width="2"/>
+<text x="92" y="795" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">untrusted / attacker-influenced data</text>
+<rect x="62" y="808" width="20" height="20" rx="5" fill="#2563eb22" stroke="#2563eb" stroke-width="2"/>
+<text x="92" y="825" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">trusted orchestration code (no model judgement)</text>
+<rect x="62" y="838" width="20" height="20" rx="5" fill="#7c3aed22" stroke="#7c3aed" stroke-width="2"/>
+<text x="92" y="855" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">LLM agent context</text>
+<rect x="62" y="868" width="20" height="20" rx="5" fill="#0d948822" stroke="#0d9488" stroke-width="2"/>
+<text x="92" y="885" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">tool layer (read-only)</text>
+<rect x="62" y="898" width="20" height="20" rx="5" fill="#0369a122" stroke="#0369a1" stroke-width="2"/>
+<text x="92" y="915" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">human decision + output</text>
+<text x="60" y="985" font-size="18" font-weight="700" fill="#b45309" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Boundary controls</text>
+<circle cx="74" cy="1011" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1016" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">1</text>
+<text x="98" y="1016" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Load only — the orchestrator parses alerts, it never interprets their content.</text>
+<circle cx="74" cy="1036" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1041" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">2</text>
+<text x="98" y="1041" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Alert fenced in &lt;untrusted&gt; + regex injection pre-scan; matches are flagged, never obeyed.</text>
+<circle cx="74" cy="1061" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1066" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">3</text>
+<text x="98" y="1066" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">RAG query built from structured alert fields only — free text cannot steer retrieval.</text>
+<circle cx="74" cy="1086" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1091" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">4</text>
+<text x="98" y="1091" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Client-side tool allowlist + per-run call ceiling before any MCP invocation.</text>
+<circle cx="74" cy="1111" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1116" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">5</text>
+<text x="98" y="1116" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Every tool result re-fenced as untrusted data on the way back into the agent.</text>
+<circle cx="74" cy="1136" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1141" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">6</text>
+<text x="98" y="1141" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Handoff sanitiser: schema allowlist, truncation, and re-scan of the agent's own output.</text>
+<circle cx="74" cy="1161" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1166" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">7</text>
+<text x="98" y="1166" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Correlation must assign every alert to exactly one validated incident.</text>
+<circle cx="74" cy="1186" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1191" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">8</text>
+<text x="98" y="1191" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Code classifies recommendations. The analyst approves or denies gated actions.</text>
+<circle cx="74" cy="1211" r="15" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<text x="74" y="1216" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif">9</text>
+<text x="98" y="1216" font-size="13.5" font-weight="400" fill="#475569" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Budget / circuit breaker bounds LLM calls, tool calls and turns across every hop.</text>
+<text x="60" y="1290" font-size="18" font-weight="700" fill="#b91c1c" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">Exposure &amp; residual gaps</text>
+<text x="62" y="1322" font-size="13.5" font-weight="400" fill="#7f1d1d" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">1. Alert free text is the primary injection surface — it is flagged and surfaced to a human, never silently sanitised away.</text>
+<text x="62" y="1348" font-size="13.5" font-weight="400" fill="#7f1d1d" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">2. The past-incident corpus is shared mutable context: write access to it is a persistent attack path across all future runs.</text>
+<text x="62" y="1374" font-size="13.5" font-weight="400" fill="#7f1d1d" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">3. Severity and grouping are model judgements with no ground truth — the report is advisory input to an analyst, not a verdict.</text>
+<text x="62" y="1400" font-size="13.5" font-weight="400" fill="#7f1d1d" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">4. The demo MCP server is read-only; adding any containment tool must move that tool behind the approval gate first.</text>
+<text x="62" y="1426" font-size="13.5" font-weight="400" fill="#7f1d1d" text-anchor="start" font-family="Inter, Helvetica Neue, Arial, sans-serif">5. No per-agent identity yet — handoffs are trusted because they are in-process, not because they are authenticated.</text>
+</svg>
