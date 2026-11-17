@@ -1,0 +1,134 @@
+[
+ {
+  "rule": "EDR-LSASS-ACCESS",
+  "name": "Process read access to LSASS memory",
+  "severity": "high",
+  "fp_rate": 0.05,
+  "fires_90d": 11,
+  "attack": [
+   "T1003.001"
+  ]
+ },
+ {
+  "rule": "EDR-OFFICE-CHILD-SHELL",
+  "name": "Office application spawned a script interpreter",
+  "severity": "high",
+  "fp_rate": 0.04,
+  "fires_90d": 7,
+  "attack": [
+   "T1204.002",
+   "T1059.001"
+  ]
+ },
+ {
+  "rule": "EDR-REMOTE-EXEC",
+  "name": "Remote service execution (PsExec-style)",
+  "severity": "high",
+  "fp_rate": 0.15,
+  "fires_90d": 20,
+  "attack": [
+   "T1021.002",
+   "T1569.002"
+  ]
+ },
+ {
+  "rule": "EDR-SCHEDULED-TASK",
+  "name": "New scheduled task created",
+  "severity": "low",
+  "fp_rate": 0.85,
+  "fires_90d": 412,
+  "attack": [
+   "T1053.005"
+  ]
+ },
+ {
+  "rule": "EDR-NEW-SERVICE",
+  "name": "New service installed",
+  "severity": "medium",
+  "fp_rate": 0.6,
+  "fires_90d": 95,
+  "attack": [
+   "T1543.003"
+  ]
+ },
+ {
+  "rule": "NDR-BEACON",
+  "name": "Periodic outbound connections (beaconing)",
+  "severity": "high",
+  "fp_rate": 0.1,
+  "fires_90d": 15,
+  "attack": [
+   "T1071.001"
+  ]
+ },
+ {
+  "rule": "NDR-LARGE-EGRESS",
+  "name": "Unusually large outbound transfer",
+  "severity": "medium",
+  "fp_rate": 0.45,
+  "fires_90d": 60,
+  "attack": [
+   "T1048"
+  ]
+ },
+ {
+  "rule": "MAIL-URL-CLICK",
+  "name": "User clicked a link from a suspicious email",
+  "severity": "medium",
+  "fp_rate": 0.3,
+  "fires_90d": 140,
+  "attack": [
+   "T1566.002"
+  ]
+ },
+ {
+  "rule": "IDP-IMPOSSIBLE-TRAVEL",
+  "name": "Sign-ins from distant locations in a short time",
+  "severity": "medium",
+  "fp_rate": 0.55,
+  "fires_90d": 88,
+  "attack": [
+   "T1078"
+  ]
+ },
+ {
+  "rule": "IDP-MFA-FATIGUE",
+  "name": "Burst of MFA push requests",
+  "severity": "high",
+  "fp_rate": 0.1,
+  "fires_90d": 9,
+  "attack": [
+   "T1621"
+  ]
+ },
+ {
+  "rule": "CLOUD-IAM-ADMIN-GRANT",
+  "name": "Administrator policy attached to an identity",
+  "severity": "high",
+  "fp_rate": 0.2,
+  "fires_90d": 14,
+  "attack": [
+   "T1098.003"
+  ]
+ },
+ {
+  "rule": "CLOUD-MASS-DOWNLOAD",
+  "name": "Mass object download from cloud storage",
+  "severity": "high",
+  "fp_rate": 0.25,
+  "fires_90d": 22,
+  "attack": [
+   "T1530"
+  ]
+ },
+ {
+  "rule": "DLP-BULK-EXPORT",
+  "name": "Bulk export of sensitive files",
+  "severity": "medium",
+  "fp_rate": 0.7,
+  "fires_90d": 230,
+  "attack": [
+   "T1567"
+  ]
+ }
+]

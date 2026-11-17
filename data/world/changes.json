@@ -1,0 +1,30 @@
+[
+ {
+  "change_id": "CHG-4471",
+  "target": "build-07",
+  "summary": "Nightly cache-prune scheduled task for CI runners",
+  "start": "2026-11-01T00:00:00Z",
+  "end": "2026-12-31T23:59:59Z",
+  "approved_by": "platform-engineering CAB"
+ },
+ {
+  "change_id": "CHG-4489",
+  "target": "kiosk-11",
+  "summary": "Vendor kiosk software update (VendorUpdater service)",
+  "start": "2026-11-16T20:00:00Z",
+  "end": "2026-11-17T06:00:00Z",
+  "approved_by": "facilities CAB"
+ },
+ {
+  "change_id": "CHG-4502",
+  "target": "svc_backup",
+  "summary": "Nightly partner SFTP export window",
+  "start": "2026-01-01T01:00:00Z",
+  "end": "2026-12-31T03:00:00Z",
+  "approved_by": "it CAB",
+  "daily_window": [
+   "01:00",
+   "03:00"
+  ]
+ }
+]

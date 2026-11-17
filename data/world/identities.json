@@ -1,0 +1,184 @@
+[
+ {
+  "principal": "a.okafor",
+  "kind": "human",
+  "title": "Finance analyst",
+  "department": "finance",
+  "privilege": "medium",
+  "mfa": true,
+  "home_countries": [
+   "DE"
+  ],
+  "work_hours": [
+   7,
+   19
+  ]
+ },
+ {
+  "principal": "t.brandt",
+  "kind": "human",
+  "title": "Chief Financial Officer",
+  "department": "finance",
+  "privilege": "high",
+  "mfa": true,
+  "home_countries": [
+   "DE"
+  ],
+  "work_hours": [
+   7,
+   21
+  ]
+ },
+ {
+  "principal": "m.lindqvist",
+  "kind": "human",
+  "title": "HR partner",
+  "department": "people",
+  "privilege": "low",
+  "mfa": true,
+  "home_countries": [
+   "DE",
+   "SE"
+  ],
+  "work_hours": [
+   8,
+   18
+  ]
+ },
+ {
+  "principal": "j.ferreira",
+  "kind": "human",
+  "title": "Software engineer",
+  "department": "engineering",
+  "privilege": "medium",
+  "mfa": true,
+  "home_countries": [
+   "DE",
+   "PT"
+  ],
+  "work_hours": [
+   9,
+   22
+  ]
+ },
+ {
+  "principal": "r.chen",
+  "kind": "human",
+  "title": "IT administrator",
+  "department": "it",
+  "privilege": "admin",
+  "mfa": true,
+  "home_countries": [
+   "DE"
+  ],
+  "work_hours": [
+   7,
+   20
+  ]
+ },
+ {
+  "principal": "s.yilmaz",
+  "kind": "human",
+  "title": "Operations lead",
+  "department": "operations",
+  "privilege": "medium",
+  "mfa": true,
+  "home_countries": [
+   "DE",
+   "TR"
+  ],
+  "work_hours": [
+   6,
+   18
+  ]
+ },
+ {
+  "principal": "k.novak",
+  "kind": "human",
+  "title": "Contractor (data migration)",
+  "department": "engineering",
+  "privilege": "low",
+  "mfa": true,
+  "home_countries": [
+   "CZ"
+  ],
+  "work_hours": [
+   8,
+   18
+  ],
+  "expires": "2026-12-01"
+ },
+ {
+  "principal": "svc_payments",
+  "kind": "service",
+  "title": "Payments service account",
+  "department": "payments-platform",
+  "privilege": "high",
+  "mfa": false,
+  "home_countries": [],
+  "work_hours": [
+   0,
+   24
+  ],
+  "allowed_hosts": [
+   "pay-app-02",
+   "pay-db-01"
+  ]
+ },
+ {
+  "principal": "svc_backup",
+  "kind": "service",
+  "title": "Backup service account",
+  "department": "it",
+  "privilege": "high",
+  "mfa": false,
+  "home_countries": [],
+  "work_hours": [
+   0,
+   24
+  ],
+  "schedule": "daily 01:00-03:00 export to partner SFTP 192.0.2.10"
+ },
+ {
+  "principal": "svc_ci",
+  "kind": "service",
+  "title": "CI service account",
+  "department": "platform-engineering",
+  "privilege": "medium",
+  "mfa": false,
+  "home_countries": [],
+  "work_hours": [
+   0,
+   24
+  ]
+ },
+ {
+  "principal": "ci-deployer",
+  "kind": "cloud",
+  "title": "CI deployment IAM user",
+  "department": "platform-engineering",
+  "privilege": "high",
+  "mfa": false,
+  "home_countries": [],
+  "work_hours": [
+   0,
+   24
+  ],
+  "expected_sources": [
+   "build-07"
+  ]
+ },
+ {
+  "principal": "role/DataEngineer",
+  "kind": "cloud",
+  "title": "Data engineering IAM role",
+  "department": "engineering",
+  "privilege": "medium",
+  "mfa": true,
+  "home_countries": [],
+  "work_hours": [
+   0,
+   24
+  ]
+ }
+]

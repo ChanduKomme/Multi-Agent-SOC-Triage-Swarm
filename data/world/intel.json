@@ -1,0 +1,111 @@
+[
+ {
+  "indicator": "203.0.113.66",
+  "type": "ip",
+  "verdict": "malicious",
+  "confidence": 0.9,
+  "tags": [
+   "c2",
+   "nightowl-loader"
+  ],
+  "first_seen": "2026-10-02"
+ },
+ {
+  "indicator": "198.51.100.23",
+  "type": "ip",
+  "verdict": "suspicious",
+  "confidence": 0.7,
+  "tags": [
+   "vps",
+   "anonymiser",
+   "credential-stuffing"
+  ],
+  "first_seen": "2026-09-14"
+ },
+ {
+  "indicator": "198.51.100.77",
+  "type": "ip",
+  "verdict": "malicious",
+  "confidence": 0.85,
+  "tags": [
+   "exfiltration",
+   "bulletproof-hosting"
+  ],
+  "first_seen": "2026-08-30"
+ },
+ {
+  "indicator": "192.0.2.10",
+  "type": "ip",
+  "verdict": "benign",
+  "confidence": 0.95,
+  "tags": [
+   "partner",
+   "sftp",
+   "allowlisted"
+  ],
+  "first_seen": "2024-01-10"
+ },
+ {
+  "indicator": "192.0.2.44",
+  "type": "ip",
+  "verdict": "benign",
+  "confidence": 0.9,
+  "tags": [
+   "corporate-vpn-egress-lisbon"
+  ],
+  "first_seen": "2025-03-02"
+ },
+ {
+  "indicator": "invoice-portal.example.net",
+  "type": "domain",
+  "verdict": "malicious",
+  "confidence": 0.9,
+  "tags": [
+   "phishing",
+   "credential-harvest"
+  ],
+  "first_seen": "2026-11-10"
+ },
+ {
+  "indicator": "cdn-kestrel-updates.example.org",
+  "type": "domain",
+  "verdict": "malicious",
+  "confidence": 0.8,
+  "tags": [
+   "payload-hosting",
+   "typosquat"
+  ],
+  "first_seen": "2026-11-12"
+ },
+ {
+  "indicator": "files.partner-logistics.example",
+  "type": "domain",
+  "verdict": "benign",
+  "confidence": 0.9,
+  "tags": [
+   "partner"
+  ],
+  "first_seen": "2024-01-10"
+ },
+ {
+  "indicator": "updates.kioskvendor.example",
+  "type": "domain",
+  "verdict": "benign",
+  "confidence": 0.8,
+  "tags": [
+   "vendor-update"
+  ],
+  "first_seen": "2023-06-01"
+ },
+ {
+  "indicator": "9f2b5c1e7a4d3b8c6e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d",
+  "type": "sha256",
+  "verdict": "malicious",
+  "confidence": 0.95,
+  "tags": [
+   "nightowl-loader",
+   "dll"
+  ],
+  "first_seen": "2026-10-02"
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "host": "pay-app-02",
+  "role": "payments application server",
+  "criticality": 5,
+  "zone": "pci",
+  "os": "windows",
+  "owner": "payments-platform"
+ },
+ {
+  "host": "pay-db-01",
+  "role": "payments database",
+  "criticality": 5,
+  "zone": "pci",
+  "os": "linux",
+  "owner": "payments-platform"
+ },
+ {
+  "host": "dc-01",
+  "role": "domain controller",
+  "criticality": 5,
+  "zone": "core",
+  "os": "windows",
+  "owner": "it-infrastructure"
+ },
+ {
+  "host": "file-srv-03",
+  "role": "department file server",
+  "criticality": 4,
+  "zone": "corp",
+  "os": "windows",
+  "owner": "it-infrastructure"
+ },
+ {
+  "host": "build-07",
+  "role": "CI build runner",
+  "criticality": 4,
+  "zone": "dev",
+  "os": "linux",
+  "owner": "platform-engineering"
+ },
+ {
+  "host": "mail-gw-01",
+  "role": "mail gateway",
+  "criticality": 4,
+  "zone": "dmz",
+  "os": "linux",
+  "owner": "it-infrastructure"
+ },
+ {
+  "host": "vpn-01",
+  "role": "VPN concentrator",
+  "criticality": 4,
+  "zone": "dmz",
+  "os": "linux",
+  "owner": "it-infrastructure"
+ },
+ {
+  "host": "fin-ws-22",
+  "role": "finance laptop",
+  "criticality": 3,
+  "zone": "corp",
+  "os": "windows",
+  "owner": "finance"
+ },
+ {
+  "host": "hr-ws-14",
+  "role": "HR laptop",
+  "criticality": 3,
+  "zone": "corp",
+  "os": "windows",
+  "owner": "people-team"
+ },
+ {
+  "host": "eng-ws-08",
+  "role": "engineering laptop",
+  "criticality": 3,
+  "zone": "corp",
+  "os": "macos",
+  "owner": "engineering"
+ },
+ {
+  "host": "dev-ws-31",
+  "role": "developer workstation",
+  "criticality": 3,
+  "zone": "corp",
+  "os": "linux",
+  "owner": "engineering"
+ },
+ {
+  "host": "ops-ws-05",
+  "role": "operations laptop",
+  "criticality": 3,
+  "zone": "corp",
+  "os": "windows",
+  "owner": "operations"
+ },
+ {
+  "host": "kiosk-11",
+  "role": "lobby visitor kiosk",
+  "criticality": 1,
+  "zone": "guest",
+  "os": "windows",
+  "owner": "facilities"
+ },
+ {
+  "host": "aws-prod",
+  "role": "production cloud account",
+  "criticality": 5,
+  "zone": "cloud",
+  "os": "cloud",
+  "owner": "platform-engineering"
+ },
+ {
+  "host": "aws-sandbox",
+  "role": "sandbox cloud account",
+  "criticality": 2,
+  "zone": "cloud",
+  "os": "cloud",
+  "owner": "platform-engineering"
+ }
+]

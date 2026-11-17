@@ -1,0 +1,37 @@
+{
+ "203.0.113.66": {
+  "country": "NL",
+  "asn": "AS64501 Example Hosting",
+  "hosting": true
+ },
+ "198.51.100.23": {
+  "country": "RO",
+  "asn": "AS64502 Example VPS",
+  "hosting": true
+ },
+ "198.51.100.77": {
+  "country": "MD",
+  "asn": "AS64503 Example Bulletproof",
+  "hosting": true
+ },
+ "192.0.2.10": {
+  "country": "DE",
+  "asn": "AS64510 Partner Logistics",
+  "hosting": false
+ },
+ "192.0.2.44": {
+  "country": "PT",
+  "asn": "AS64511 Kestrel VPN Lisbon",
+  "hosting": false
+ },
+ "192.0.2.80": {
+  "country": "DE",
+  "asn": "AS64512 Kestrel HQ Berlin",
+  "hosting": false
+ },
+ "192.0.2.81": {
+  "country": "DE",
+  "asn": "AS64512 Kestrel HQ Berlin",
+  "hosting": false
+ }
+}
