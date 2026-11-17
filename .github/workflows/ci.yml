@@ -1,0 +1,61 @@
+# Author: Chandu Komme — TriageHive
+name: TriageHive CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Tests on Python ${{ matrix.python }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Run the test suite (resource warnings are errors)
+        run: python -W error::ResourceWarning -m unittest discover -s tests -v
+
+  evaluate:
+    name: Swarm evaluation gate
+    needs: tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify the hand-written holdouts were not edited
+        working-directory: data/scenarios
+        run: sha256sum -c weekend-shift.sha256 holiday-shift.sha256
+      - name: Evaluate against ground truth (200 generated scenarios + showcase + holdouts)
+        run: python -m triagehive evaluate --seeds 200 --out reports
+      - name: Triage the showcase night with the MCP server as a subprocess
+        run: python -m triagehive run --out reports/night-shift --transport stdio --approvals data/approvals.example.json
+      - name: Verify the audit chain, then prove tampering is detected
+        run: |
+          python -m triagehive verify-audit reports/night-shift/audit.jsonl
+          sed -i '5s/"triage"/"attacker"/' reports/night-shift/audit.jsonl
+          if python -m triagehive verify-audit reports/night-shift/audit.jsonl; then
+            echo "tampering was NOT detected"; exit 1
+          fi
+      - name: Publish results to the run summary
+        if: always()
+        run: |
+          cat reports/evaluation.md >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          sed -n '1,30p' reports/night-shift/triage_report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: triagehive-reports
+          path: reports/
